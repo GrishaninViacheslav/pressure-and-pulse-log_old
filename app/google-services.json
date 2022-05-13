@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "566930423137",
+    "project_id": "pressure-and-pulse-log",
+    "storage_bucket": "pressure-and-pulse-log.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566930423137:android:31e6b032cdf4c3a0129920",
+        "android_client_info": {
+          "package_name": "io.github.grishaninvyacheslav.pressure_and_pulse_log"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566930423137-q6rbatllrksg9pjc2ga1okq55ms1rekg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrp4adkx6X6DUuyIlwPMyiSFwq5knop_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566930423137-q6rbatllrksg9pjc2ga1okq55ms1rekg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
