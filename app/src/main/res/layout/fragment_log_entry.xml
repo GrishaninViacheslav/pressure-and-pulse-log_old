@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/log_date_title"
+            style="@style/InputTitleStyle"
+            android:text="@string/log_date_title"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/year_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintHorizontal_bias="0"
+            android:hint="@string/year_hint"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="@id/systolic_pressure_input_layout"
+            app:layout_constraintRight_toLeftOf="@id/day_input_layout"
+            app:layout_constraintTop_toBottomOf="@id/log_date_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/year_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2022" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/day_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/day_hint"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintLeft_toRightOf="@id/year_input_layout"
+            app:layout_constraintRight_toLeftOf="@id/time_input_layout"
+            app:layout_constraintTop_toTopOf="@id/year_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/day_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="13.05" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/time_hint"
+            android:background="@android:color/transparent"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintLeft_toRightOf="@id/day_input_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/year_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/time_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="19:04" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/pressure_and_pulse_title"
+            style="@style/InputTitleStyle"
+            android:text="@string/pressure_and_pulse_title"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_input_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/systolic_pressure_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/systolic_pressure_hint"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/diastolic_pressure_input_layout"
+            app:layout_constraintTop_toBottomOf="@id/pressure_and_pulse_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/systolic_pressure_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:text="141" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/diastolic_pressure_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/diastolic_pressure_hint"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintLeft_toRightOf="@id/systolic_pressure_input_layout"
+            app:layout_constraintRight_toLeftOf="@id/pulse_input_layout"
+            app:layout_constraintTop_toTopOf="@id/systolic_pressure_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/diastolic_pressure_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:text="64" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pulse_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/pulse_hint"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintLeft_toRightOf="@id/diastolic_pressure_input_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/diastolic_pressure_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pulse_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:text="69" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirm_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/confirm_log_entry" />
+</LinearLayout>
