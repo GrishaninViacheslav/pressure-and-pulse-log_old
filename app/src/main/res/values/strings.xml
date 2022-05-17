@@ -11,6 +11,10 @@
     <string name="confirm_log_entry">Добавить</string>
     <string name="pressure_separator">/</string>
     <string name="error_occurred">Произошла ошибка: %1$s</string>
+    <string name="saved_successfully">Сохраненно</string>
     <string name="log_entry_section_title_date_format">dd MMMM</string>
-    <string name="log_entry_time_format">hh:mm</string>
+    <string name="log_entry_time_format">HH:mm</string>
+    <string name="entry_year_format">yyyy</string>
+    <string name="date_format">MM.dd</string>
+    <string name="time_format">HH:mm</string>
 </resources>

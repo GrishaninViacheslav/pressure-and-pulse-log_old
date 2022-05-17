@@ -25,9 +25,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:hint="@string/year_hint"
             app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintHorizontal_bias="0"
-            android:hint="@string/year_hint"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="@id/systolic_pressure_input_layout"
             app:layout_constraintRight_toLeftOf="@id/day_input_layout"
@@ -37,15 +37,15 @@
                 android:id="@+id/year_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2022" />
+                tools:text="2022" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/day_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/day_hint"
             android:background="@android:color/transparent"
+            android:hint="@string/day_hint"
             app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintLeft_toRightOf="@id/year_input_layout"
             app:layout_constraintRight_toLeftOf="@id/time_input_layout"
@@ -55,15 +55,15 @@
                 android:id="@+id/day_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="13.05" />
+                tools:text="13.05" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/time_input_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/time_hint"
             android:background="@android:color/transparent"
+            android:hint="@string/time_hint"
             app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintLeft_toRightOf="@id/day_input_layout"
             app:layout_constraintRight_toRightOf="parent"
@@ -73,7 +73,7 @@
                 android:id="@+id/time_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="19:04" />
+                tools:text="19:04" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
-                android:text="141" />
+                tools:text="141" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
-                android:text="64" />
+                tools:text="64" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
-                android:text="69" />
+                tools:text="69" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -155,5 +155,12 @@
         android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
-        android:text="@string/confirm_log_entry" />
+        android:text="@string/confirm_log_entry"
+        android:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

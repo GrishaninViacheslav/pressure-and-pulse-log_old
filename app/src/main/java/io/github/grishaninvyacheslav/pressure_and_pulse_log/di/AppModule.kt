@@ -2,19 +2,29 @@ package io.github.grishaninvyacheslav.pressure_and_pulse_log.di
 
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.ILogRepository
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.LogRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.screens.IScreens
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.screens.Screens
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.LogViewModel
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.logEntry.EntryViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
-    viewModel { LogViewModel() }
+    single{ Firebase.firestore }
+    single<ILogRepository> { LogRepository(get()) }
 
     single { provideCicerone() }
     single { provideRouter(get()) }
     single { provideNavigatorHolder(get()) }
     single { provideScreens() }
+
+    viewModel { LogViewModel(get()) }
+    viewModel { EntryViewModel(get()) }
 }
 
 fun provideCicerone(): Cicerone<Router> = Cicerone.create()
