@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/share_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Поделиться:"
+        android:textSize="@dimen/title_size"
+        app:layout_constraintBottom_toBottomOf="@id/share_via_link"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_via_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="0dp"
+        android:text="Ссылка"
+        android:textAllCaps="false"
+        android:textColor="@android:color/tab_indicator_text"
+        app:icon="@drawable/copy_all_48"
+        app:iconGravity="top"
+        app:iconSize="25dp"
+        app:iconTint="@color/black"
+        app:layout_constraintLeft_toRightOf="@id/share_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_via_whatsapp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="0dp"
+        android:text="WhatsApp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/tab_indicator_text"
+        app:icon="@drawable/icon_whatsapp"
+        app:iconGravity="top"
+        app:iconSize="25dp"
+        app:iconTint="@null"
+        app:layout_constraintBottom_toBottomOf="@id/share_via_link"
+        app:layout_constraintLeft_toRightOf="@id/share_via_link"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_via_telegram"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="0dp"
+        android:text="Telegram"
+        android:textAllCaps="false"
+        android:textColor="@android:color/tab_indicator_text"
+        app:icon="@drawable/icon_telegram"
+        app:iconGravity="top"
+        app:iconSize="25dp"
+        app:iconTint="@null"
+        app:layout_constraintBottom_toBottomOf="@id/share_via_link"
+        app:layout_constraintLeft_toRightOf="@id/share_via_whatsapp"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/log_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/share_via_link" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_entry"
@@ -16,6 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/outer_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/ic_add_48"
         tools:ignore="RtlHardcoded" />
 
@@ -23,5 +98,9 @@
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-</FrameLayout>
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
