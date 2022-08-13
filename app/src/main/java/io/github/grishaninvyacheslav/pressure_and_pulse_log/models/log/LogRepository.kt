@@ -1,12 +1,17 @@
-package io.github.grishaninvyacheslav.pressure_and_pulse_log.models
+package io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log
 
 import com.google.firebase.firestore.FirebaseFirestore
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.entities.LogEntry
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.toLogEntity
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.toMap
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.IGuidProvider
 
-class LogRepository(private val db: FirebaseFirestore) : ILogRepository {
-    private val collectionPath = "pressure-and-pulse-log"
+
+class LogRepository(private val db: FirebaseFirestore, private val guidProvider: IGuidProvider) :
+    ILogRepository {
+    private val collectionPath by lazy {
+        guidProvider.getGUID()
+    }
 
     private val sortComparator =
         Comparator<LogEntry> { a, b -> (a.timestamp - b.timestamp).toInt() }

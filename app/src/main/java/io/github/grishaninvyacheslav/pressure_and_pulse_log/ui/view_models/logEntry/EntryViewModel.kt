@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.entities.LogEntry
-import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.ILogRepository
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.ILogRepository
 
 class EntryViewModel(private val repository: ILogRepository) : ViewModel() {
     private val mutableSaveState: MutableLiveData<EntrySaveState> = MutableLiveData()

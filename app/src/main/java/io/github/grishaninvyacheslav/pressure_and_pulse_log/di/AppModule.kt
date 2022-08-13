@@ -2,11 +2,12 @@ package io.github.grishaninvyacheslav.pressure_and_pulse_log.di
 
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.ILogRepository
-import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.LogRepository
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.GuidProvider
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.IGuidProvider
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.ILogRepository
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.LogRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.screens.IScreens
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.screens.Screens
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.LogViewModel
@@ -16,7 +17,8 @@ import org.koin.dsl.module
 
 val appModule = module {
     single{ Firebase.firestore }
-    single<ILogRepository> { LogRepository(get()) }
+    single<ILogRepository> { LogRepository(get(), get()) }
+    single<IGuidProvider> { GuidProvider(get()) }
 
     single { provideCicerone() }
     single { provideRouter(get()) }
