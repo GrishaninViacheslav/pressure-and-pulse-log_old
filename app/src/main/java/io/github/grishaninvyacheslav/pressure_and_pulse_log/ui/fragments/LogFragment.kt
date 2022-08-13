@@ -1,8 +1,11 @@
 package io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.fragments
 
+import android.R.attr.label
+import android.content.ClipData
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.terrakok.cicerone.Router
@@ -19,6 +22,8 @@ import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.L
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
+import android.content.ClipboardManager
+
 
 class LogFragment :
     BaseFragment<FragmentLogBinding>(FragmentLogBinding::inflate) {
@@ -29,10 +34,21 @@ class LogFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.addEntry.setOnClickListener {
+        initListeners()
+        viewModel.logState.observe(viewLifecycleOwner) { renderLogState(it) }
+    }
+
+    private fun initListeners() = with(binding) {
+        shareViaLink.setOnClickListener {
+            val clipboard: ClipboardManager? =
+                getSystemService(requireContext(), ClipboardManager::class.java)
+            val clip = ClipData.newPlainText("LogLink", "https://grishaninvyacheslav.github.io/pressure_and_pulse_demo.html?guid=d75204d9-745d-4f1f-84bf-0c1d79af3ae6")
+            clipboard?.setPrimaryClip(clip)
+            Toast.makeText(requireContext(), "Ссылка скопирована", Toast.LENGTH_SHORT).show()
+        }
+        addEntry.setOnClickListener {
             router.navigateTo(screens.addLogEntry())
         }
-        viewModel.logState.observe(viewLifecycleOwner) { renderLogState(it) }
     }
 
     private fun renderLogState(state: LogState) =
