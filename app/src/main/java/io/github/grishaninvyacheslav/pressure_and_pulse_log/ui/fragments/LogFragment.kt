@@ -1,11 +1,8 @@
 package io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.fragments
 
-import android.R.attr.label
-import android.content.ClipData
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.terrakok.cicerone.Router
@@ -22,7 +19,8 @@ import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.L
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
-import android.content.ClipboardManager
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.entities.PromptMessage
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.ShareState
 
 
 class LogFragment :
@@ -36,15 +34,12 @@ class LogFragment :
         super.onViewCreated(view, savedInstanceState)
         initListeners()
         viewModel.logState.observe(viewLifecycleOwner) { renderLogState(it) }
+        viewModel.shareState.observe(viewLifecycleOwner) { renderShareState(it) }
     }
 
     private fun initListeners() = with(binding) {
         shareViaLink.setOnClickListener {
-            val clipboard: ClipboardManager? =
-                getSystemService(requireContext(), ClipboardManager::class.java)
-            val clip = ClipData.newPlainText("LogLink", "https://grishaninvyacheslav.github.io/pressure_and_pulse_demo.html?guid=d75204d9-745d-4f1f-84bf-0c1d79af3ae6")
-            clipboard?.setPrimaryClip(clip)
-            Toast.makeText(requireContext(), "Ссылка скопирована", Toast.LENGTH_SHORT).show()
+            viewModel.shareLogViaLink()
         }
         addEntry.setOnClickListener {
             router.navigateTo(screens.addLogEntry())
@@ -58,17 +53,25 @@ class LogFragment :
             }
             is LogState.Error -> {
                 binding.progressBar.isVisible = false
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.error_occurred, state.error),
-                    Toast.LENGTH_LONG
-                ).show()
+                showToast(
+                    getString(R.string.error_occurred, state.error)
+                )
             }
             is LogState.Success -> {
                 binding.progressBar.isVisible = false
                 initList(state.log)
             }
         }
+
+    private fun renderShareState(state: ShareState) =
+        when (state) {
+            ShareState.Success -> showToast(getString(R.string.copied_to_clipboard))
+            is ShareState.Error -> showToast(getString(R.string.error, state.error.message))
+        }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
 
     private fun initList(log: List<LogEntry>) = with(binding) {
         logList.layoutManager = LinearLayoutManager(requireContext())

@@ -17,4 +17,7 @@
     <string name="entry_year_format">yyyy</string>
     <string name="date_format">MM.dd</string>
     <string name="time_format">HH:mm</string>
+    <string name="log_link_clip_label">LogLink</string>
+    <string name="copied_to_clipboard">Скопировано в буфер обмена.</string>
+    <string name="error">Ошибка: %1$s</string>
 </resources>

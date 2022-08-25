@@ -4,10 +4,14 @@ import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.clipboard.ClipboardRepository
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.clipboard.IClipboardRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.GuidProvider
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.IGuidProvider
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.ILogRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.LogRepository
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.resource.IResourceProvider
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.resource.ResourceProvider
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.screens.IScreens
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.screens.Screens
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.LogViewModel
@@ -19,13 +23,15 @@ val appModule = module {
     single{ Firebase.firestore }
     single<ILogRepository> { LogRepository(get(), get()) }
     single<IGuidProvider> { GuidProvider(get()) }
+    single<IClipboardRepository> { ClipboardRepository(get()) }
+    single<IResourceProvider> { ResourceProvider(get()) }
 
     single { provideCicerone() }
     single { provideRouter(get()) }
     single { provideNavigatorHolder(get()) }
     single { provideScreens() }
 
-    viewModel { LogViewModel(get()) }
+    viewModel { LogViewModel(get(), get(), get()) }
     viewModel { EntryViewModel(get()) }
 }
 
