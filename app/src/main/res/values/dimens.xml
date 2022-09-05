@@ -4,4 +4,5 @@
     <dimen name="major_value">30sp</dimen>
     <dimen name="outer_margin">20dp</dimen>
     <dimen name="half_margin">7dp</dimen>
+    <dimen name="text_fixed_size">20dp</dimen>
 </resources>

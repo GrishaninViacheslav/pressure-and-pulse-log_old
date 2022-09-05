@@ -4,7 +4,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import androidx.core.content.ContextCompat
-import java.lang.Exception
 
 class ClipboardRepository(private val context: Context) : IClipboardRepository {
     private val clipboard by lazy {

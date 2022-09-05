@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/drawable/bg_gradient_yellow.xml" value="0.127" />
         <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/drawable/copy_all_48.xml" value="0.32" />
+        <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/layout-sw300dp/item_log_entry.xml" value="0.1375" />
+        <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/layout-w450dp/item_log_entry.xml" value="0.2009009009009009" />
+        <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/layout-w700dp/item_log_entry.xml" value="0.2009009009009009" />
         <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/layout/fragment_log.xml" value="0.3171875" />
         <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/layout/fragment_log_entry.xml" value="0.3171875" />
+        <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressure-and-pulse-log/app/src/main/res/layout/item_log_entry.xml" value="0.2" />
         <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressureandpulselog/app/src/main/res/drawable/bg_gradient.xml" value="0.127" />
         <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressureandpulselog/app/src/main/res/drawable/bg_gradient_green.xml" value="0.127" />
         <entry key="..\:/Users/Saeng/AndroidStudioProjects/pressureandpulselog/app/src/main/res/drawable/bg_gradient_yellow.xml" value="0.127" />

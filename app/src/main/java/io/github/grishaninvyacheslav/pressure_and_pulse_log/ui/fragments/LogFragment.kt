@@ -19,9 +19,7 @@ import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.L
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
-import io.github.grishaninvyacheslav.pressure_and_pulse_log.entities.PromptMessage
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log.ShareState
-
 
 class LogFragment :
     BaseFragment<FragmentLogBinding>(FragmentLogBinding::inflate) {

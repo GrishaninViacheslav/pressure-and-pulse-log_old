@@ -1,6 +1,5 @@
 package io.github.grishaninvyacheslav.pressure_and_pulse_log
 
-import android.util.Log
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.entities.LogEntry
 import java.util.*
 

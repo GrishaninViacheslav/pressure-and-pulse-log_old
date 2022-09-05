@@ -40,88 +40,86 @@
 
     <TextView
         android:id="@+id/time"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/outer_margin"
-        android:textAlignment="center"
+        android:layout_marginHorizontal="@dimen/outer_margin"
         android:textSize="@dimen/text_fixed_size"
+        app:layout_constraintBottom_toBottomOf="@id/systolic_pressure"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sectionTitle"
+        app:layout_constraintTop_toTopOf="@id/systolic_pressure"
         tools:text="23:54" />
 
     <TextView
         android:id="@+id/systolic_pressure"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/outer_margin"
-        android:textAlignment="center"
+        android:layout_marginVertical="@dimen/half_margin"
         android:textColor="@color/black"
         android:textSize="@dimen/major_value"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toRightOf="@id/time"
+        app:layout_constraintRight_toLeftOf="@id/pressure_separator"
+        app:layout_constraintTop_toBottomOf="@id/separator"
         tools:text="137" />
 
     <TextView
         android:id="@+id/pressure_separator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/half_margin"
         android:text="@string/pressure_separator"
         android:textSize="@dimen/major_value"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/systolic_pressure" />
+        app:layout_constraintBottom_toBottomOf="@id/systolic_pressure"
+        app:layout_constraintLeft_toRightOf="@id/systolic_pressure"
+        app:layout_constraintRight_toLeftOf="@id/diastolic_pressure"
+        app:layout_constraintTop_toTopOf="@id/systolic_pressure" />
 
     <TextView
         android:id="@+id/diastolic_pressure"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/outer_margin"
-        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/major_value"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pressure_separator"
-        tools:text="137" />
+        app:layout_constraintBottom_toBottomOf="@id/pressure_separator"
+        app:layout_constraintLeft_toRightOf="@id/pressure_separator"
+        app:layout_constraintRight_toLeftOf="@id/pulse_separator"
+        app:layout_constraintTop_toTopOf="@id/pressure_separator"
+        tools:text="71" />
 
     <ImageView
         android:id="@+id/pulse_separator"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:layout_marginLeft="@dimen/half_margin"
         android:scaleType="fitXY"
-        android:layout_marginLeft="@dimen/outer_margin"
         android:src="@drawable/favorite_48"
-        app:layout_constraintBottom_toBottomOf="@id/pulse"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/diastolic_pressure"
+        app:layout_constraintLeft_toRightOf="@id/diastolic_pressure"
         app:layout_constraintRight_toLeftOf="@id/pulse"
-        app:layout_constraintTop_toTopOf="@id/pulse" />
+        app:layout_constraintTop_toTopOf="@id/diastolic_pressure" />
 
     <TextView
         android:id="@+id/pulse"
-        android:layout_width="0dp"
-        android:paddingHorizontal="@dimen/outer_margin"
-        android:paddingRight="@dimen/outer_margin"
-        android:layout_marginRight="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/half_margin"
         android:textSize="@dimen/major_value"
-        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/pulse_separator"
         app:layout_constraintLeft_toRightOf="@id/pulse_separator"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/diastolic_pressure"
-        tools:text="590" />
+        app:layout_constraintRight_toLeftOf="@id/comment_icon"
+        app:layout_constraintTop_toTopOf="@id/pulse_separator"
+        tools:text="59" />
 
     <ImageView
         android:id="@+id/comment_icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginVertical="@dimen/half_margin"
+        android:layout_marginHorizontal="@dimen/outer_margin"
+        android:layout_marginLeft="@dimen/outer_margin"
         android:scaleType="fitXY"
         android:src="@drawable/comment_48"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/diastolic_pressure"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pulse" />
+        app:layout_constraintTop_toTopOf="@id/diastolic_pressure" />
 </androidx.constraintlayout.widget.ConstraintLayout>
