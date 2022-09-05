@@ -7,6 +7,8 @@ import io.github.grishaninvyacheslav.pressure_and_pulse_log.R
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.clipboard.IClipboardRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.ILogRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.resource.IResourceProvider
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.utils.CancelableJobs
+import kotlinx.coroutines.*
 
 class LogViewModel(
     private val logRepository: ILogRepository,
@@ -17,6 +19,12 @@ class LogViewModel(
     private val mutableLogState: MutableLiveData<LogState> = MutableLiveData()
     private val mutableShareState: MutableLiveData<ShareState> = MutableLiveData()
 
+    private val cancelableJobs = CancelableJobs()
+
+    private val logExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        mutableLogState.postValue(LogState.Error(throwable))
+    }
+
     val logState: LiveData<LogState>
         get() {
             if (mutableLogState.value == LogState.Loading) {
@@ -24,10 +32,13 @@ class LogViewModel(
             }
             return mutableLogState.apply {
                 value = LogState.Loading
-                logRepository.getLog(
-                    { value = LogState.Success(it) },
-                    { value = LogState.Error(it) }
-                )
+                CoroutineScope(Dispatchers.IO + logExceptionHandler).launch {
+                    postValue(
+                        LogState.Success(
+                            logRepository.getLog()
+                        )
+                    )
+                }.also { cancelableJobs.add(it) }
             }
         }
 
@@ -40,5 +51,10 @@ class LogViewModel(
             { mutableShareState.value = ShareState.Success },
             { mutableShareState.value = ShareState.Error(it) }
         )
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        cancelableJobs.cancel()
     }
 }

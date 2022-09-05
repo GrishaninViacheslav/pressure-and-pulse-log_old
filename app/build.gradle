@@ -57,4 +57,7 @@ dependencies {
     implementation 'androidx.ads:ads-identifier:1.0.0-alpha01'
     // Used for the calls to addCallback() in the snippets on this page.
     implementation 'com.google.guava:guava:28.0-android'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2"
 }

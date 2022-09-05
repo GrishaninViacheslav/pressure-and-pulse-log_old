@@ -3,16 +3,20 @@ package io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid
 import android.content.Context
 import java.util.*
 
-class GuidProvider(applicationContext: Context): IGuidProvider {
-    override fun getGUID() = guid
+class DeviceGuidProvider(applicationContext: Context) : IDeviceGuidProvider {
+    override suspend fun getDeviceGUID() = guid
 
     private val guid: String by lazy {
         extractGuid() ?: makeGuid()
     }
 
-    private val sharedPref = applicationContext.getSharedPreferences("guid_pref", Context.MODE_PRIVATE)
+    private val sharedPref by lazy {
+        applicationContext.getSharedPreferences("guid_pref", Context.MODE_PRIVATE)
+    }
 
-    private val editor = sharedPref.edit()
+    private val editor by lazy {
+        sharedPref.edit()
+    }
 
     private fun makeGuid(): String {
         val guid = UUID.randomUUID().toString()

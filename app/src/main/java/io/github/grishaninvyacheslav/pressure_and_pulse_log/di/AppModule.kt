@@ -6,8 +6,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.clipboard.ClipboardRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.clipboard.IClipboardRepository
-import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.GuidProvider
-import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.IGuidProvider
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.DeviceGuidProvider
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.IDeviceGuidProvider
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.ILogRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.LogRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.resource.IResourceProvider
@@ -22,7 +22,7 @@ import org.koin.dsl.module
 val appModule = module {
     single{ Firebase.firestore }
     single<ILogRepository> { LogRepository(get(), get()) }
-    single<IGuidProvider> { GuidProvider(get()) }
+    single<IDeviceGuidProvider> { DeviceGuidProvider(get()) }
     single<IClipboardRepository> { ClipboardRepository(get()) }
     single<IResourceProvider> { ResourceProvider(get()) }
 
