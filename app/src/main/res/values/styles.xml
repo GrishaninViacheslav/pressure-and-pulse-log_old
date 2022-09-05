@@ -6,4 +6,8 @@
         <item name="android:textSize">@dimen/title_size</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="PressureValueViewStyle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/major_value</item>
+    </style>
 </resources>

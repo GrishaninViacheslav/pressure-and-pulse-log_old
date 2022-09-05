@@ -1,10 +1,6 @@
 package io.github.grishaninvyacheslav.pressure_and_pulse_log
 
-import android.os.Build
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
@@ -26,17 +22,6 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             router.replaceScreen(screens.log())
         }
-
-        val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
-        val height = displayMetrics.heightPixels
-        val legacySize = displayMetrics.widthPixels
-
-
-        val width = legacySize / (applicationContext.getResources()
-            .getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT)
-
-        Toast.makeText(applicationContext, "width: $width", Toast.LENGTH_LONG).show()
     }
 
     private val navigatorHolder: NavigatorHolder by inject()

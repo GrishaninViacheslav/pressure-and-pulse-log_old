@@ -4,8 +4,8 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="2dp"
-                android:color="#646464" />
-            <solid android:color="#FFDDDDDD" />
+                android:color="@color/section_title_separator" />
+            <solid android:color="@color/section_title_background" />
 
         </shape>
     </item>
@@ -14,7 +14,7 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="3dp"
-                android:color="#FFDDDDDD" />
+                android:color="@color/section_title_background" />
             <solid android:color="@android:color/transparent" />
         </shape>
     </item>

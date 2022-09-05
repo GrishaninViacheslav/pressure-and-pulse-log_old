@@ -37,6 +37,8 @@
                 android:id="@+id/year_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/major_value"
+                tools:ignore="SpUsage"
                 tools:text="2022" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,6 +57,8 @@
                 android:id="@+id/day_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/major_value"
+                tools:ignore="SpUsage"
                 tools:text="13.05" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,6 +77,8 @@
                 android:id="@+id/time_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/major_value"
+                tools:ignore="SpUsage"
                 tools:text="19:04" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,6 +108,8 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
+                android:textSize="@dimen/major_value"
+                tools:ignore="SpUsage"
                 tools:text="141" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,6 +130,8 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
+                android:textSize="@dimen/major_value"
+                tools:ignore="SpUsage"
                 tools:text="64" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,6 +152,8 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
+                android:textSize="@dimen/major_value"
+                tools:ignore="SpUsage"
                 tools:text="69" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
