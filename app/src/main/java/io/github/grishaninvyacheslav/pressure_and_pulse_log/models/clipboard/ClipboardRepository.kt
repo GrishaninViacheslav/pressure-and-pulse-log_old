@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import androidx.core.content.ContextCompat
+import java.lang.Exception
 
 class ClipboardRepository(private val context: Context) : IClipboardRepository {
     private val clipboard by lazy {
@@ -13,19 +14,12 @@ class ClipboardRepository(private val context: Context) : IClipboardRepository {
         )
     }
 
-    override fun setTextClip(
+    override suspend fun setTextClip(
         label: String,
-        text: String,
-        onSuccessListener: () -> Unit,
-        onFailureListener: (exception: Exception) -> Unit
+        text: String
     ) {
-        try {
-            ClipData.newPlainText(label, text).let {
-                clipboard?.setPrimaryClip(it) ?: throw ClipboardWriteError()
-            }
-        } catch (exception: Exception) {
-            onFailureListener(exception)
+        ClipData.newPlainText(label, text).let {
+            clipboard?.setPrimaryClip(it) ?: throw UnavailableClipboardManager()
         }
-        onSuccessListener()
     }
 }

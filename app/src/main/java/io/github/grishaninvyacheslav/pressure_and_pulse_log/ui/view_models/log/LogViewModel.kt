@@ -25,6 +25,10 @@ class LogViewModel(
         mutableLogState.postValue(LogState.Error(throwable))
     }
 
+    private val clipboardExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        mutableShareState.postValue(ShareState.Error(throwable))
+    }
+
     val logState: LiveData<LogState>
         get() {
             if (mutableLogState.value == LogState.Loading) {
@@ -45,12 +49,13 @@ class LogViewModel(
     val shareState: LiveData<ShareState> = mutableShareState
 
     fun shareLogViaLink() {
-        clipboardRepository.setTextClip(
-            resourceProvider.getString(R.string.log_link_clip_label),
-            "https://grishaninvyacheslav.github.io/pressure_and_pulse_demo.html?guid=d75204d9-745d-4f1f-84bf-0c1d79af3ae6",
-            { mutableShareState.value = ShareState.Success },
-            { mutableShareState.value = ShareState.Error(it) }
-        )
+        CoroutineScope(Dispatchers.IO + clipboardExceptionHandler).launch {
+            clipboardRepository.setTextClip(
+                resourceProvider.getString(R.string.log_link_clip_label),
+                "https://grishaninvyacheslav.github.io/pressure_and_pulse_demo.html?guid=d75204d9-745d-4f1f-84bf-0c1d79af3ae6"
+            )
+            mutableShareState.postValue(ShareState.Success)
+        }.also { cancelableJobs.add(it) }
     }
 
     override fun onCleared() {
