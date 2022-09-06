@@ -5,9 +5,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/title_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
     <style name="PressureValueViewStyle">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">@color/major_text_color</item>
         <item name="android:textSize">@dimen/major_value</item>
+    </style>
+    <style name="TextInputLayoutStyle">
+        <item name="boxStrokeColor">@color/edit_text_box_border</item>
+        <item name="android:textColorHint">@color/text_color</item>
+        <item name="hintTextColor">@color/focused_color</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
     </style>
 </resources>

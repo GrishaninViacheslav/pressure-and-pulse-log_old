@@ -22,11 +22,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/year_input_layout"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:hint="@string/year_hint"
-            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="@id/systolic_pressure_input_layout"
@@ -37,6 +36,7 @@
                 android:id="@+id/year_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
                 tools:ignore="SpUsage"
                 tools:text="2022" />
@@ -44,11 +44,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/day_input_layout"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:hint="@string/day_hint"
-            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintLeft_toRightOf="@id/year_input_layout"
             app:layout_constraintRight_toLeftOf="@id/time_input_layout"
             app:layout_constraintTop_toTopOf="@id/year_input_layout">
@@ -57,6 +56,7 @@
                 android:id="@+id/day_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
                 tools:ignore="SpUsage"
                 tools:text="13.05" />
@@ -64,11 +64,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/time_input_layout"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:hint="@string/time_hint"
-            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintLeft_toRightOf="@id/day_input_layout"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/year_input_layout">
@@ -77,6 +76,7 @@
                 android:id="@+id/time_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
                 tools:ignore="SpUsage"
                 tools:text="19:04" />
@@ -92,11 +92,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/systolic_pressure_input_layout"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:hint="@string/systolic_pressure_hint"
-            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/diastolic_pressure_input_layout"
@@ -108,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
+                android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
                 tools:ignore="SpUsage"
                 tools:text="141" />
@@ -115,11 +115,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/diastolic_pressure_input_layout"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:hint="@string/diastolic_pressure_hint"
-            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintLeft_toRightOf="@id/systolic_pressure_input_layout"
             app:layout_constraintRight_toLeftOf="@id/pulse_input_layout"
             app:layout_constraintTop_toTopOf="@id/systolic_pressure_input_layout">
@@ -130,6 +129,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
+                android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
                 tools:ignore="SpUsage"
                 tools:text="64" />
@@ -137,11 +137,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/pulse_input_layout"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:hint="@string/pulse_hint"
-            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintLeft_toRightOf="@id/diastolic_pressure_input_layout"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/diastolic_pressure_input_layout">
@@ -152,6 +151,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
+                android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
                 tools:ignore="SpUsage"
                 tools:text="69" />
@@ -162,11 +162,15 @@
         android:id="@+id/confirm_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/outer_margin"
         android:insetLeft="0dp"
+        android:backgroundTint="@color/active_button_color"
+        android:textColor="@color/button_text_color"
         android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
+        android:textSize="@dimen/title_size"
         android:text="@string/confirm_log_entry"
         android:visibility="visible" />
 

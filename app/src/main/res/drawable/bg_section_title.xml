@@ -4,7 +4,7 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="2dp"
-                android:color="@color/section_title_separator" />
+                android:color="@color/separator_color" />
             <solid android:color="@color/section_title_background" />
 
         </shape>
