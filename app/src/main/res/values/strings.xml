@@ -20,4 +20,5 @@
     <string name="log_link_clip_label">LogLink</string>
     <string name="copied_to_clipboard">Скопировано в буфер обмена.</string>
     <string name="error">Ошибка: %1$s</string>
+    <string name="unavailable_clipboard_manager">Сервис буфера обмена не доступен</string>
 </resources>

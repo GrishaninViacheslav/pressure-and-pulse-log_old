@@ -23,7 +23,7 @@ val appModule = module {
     single{ Firebase.firestore }
     single<ILogRepository> { LogRepository(get(), get()) }
     single<IDeviceGuidProvider> { DeviceGuidProvider(get()) }
-    single<IClipboardRepository> { ClipboardRepository(get()) }
+    single<IClipboardRepository> { ClipboardRepository(get(), get()) }
     single<IResourceProvider> { ResourceProvider(get()) }
 
     single { provideCicerone() }
