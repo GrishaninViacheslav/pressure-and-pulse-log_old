@@ -32,11 +32,8 @@ class LogEntryFragment :
     @SuppressLint("SimpleDateFormat")
     private fun initViewsValues() = with(binding) {
         with(Date(currTimestampMs)) {
-            yearInputEditText.setText(
-                SimpleDateFormat(getString(R.string.entry_year_format)).format(this)
-            )
-            dayInputEditText.setText(
-                SimpleDateFormat(getString(R.string.date_format)).format(this)
+            dateInputEditText.setText(
+                SimpleDateFormat(getString(R.string.entry_date_format)).format(this)
             )
             timeInputEditText.setText(
                 SimpleDateFormat(getString(R.string.time_format)).format(this)
@@ -45,8 +42,7 @@ class LogEntryFragment :
     }
 
     private fun initViewListeners() = with(binding) {
-        yearInputEditText.keyListener = null
-        dayInputEditText.keyListener = null
+        dateInputEditText.keyListener = null
         timeInputEditText.keyListener = null
         confirmButton.setOnClickListener {
             viewModel.addEntry(

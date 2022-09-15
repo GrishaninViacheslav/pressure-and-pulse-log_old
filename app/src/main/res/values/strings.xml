@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Pressure and pulse log</string>
-    <string name="log_date_title">ВРЕМЯ</string>
-    <string name="year_hint">Год</string>
-    <string name="day_hint">День</string>
+    <string name="log_date_title">ДАТА И ВРЕМЯ</string>
+    <string name="date_hint">Дата</string>
     <string name="time_hint">Время</string>
     <string name="pressure_and_pulse_title">ДАВЛЕНИЕ И ПУЛЬС</string>
     <string name="systolic_pressure_hint">Верхнее</string>
@@ -14,7 +13,7 @@
     <string name="saved_successfully">Сохраненно</string>
     <string name="log_entry_section_title_date_format">dd MMMM</string>
     <string name="log_entry_time_format">HH:mm</string>
-    <string name="entry_year_format">yyyy</string>
+    <string name="entry_date_format">dd.MM.yyyy</string>
     <string name="date_format">MM.dd</string>
     <string name="time_format">HH:mm</string>
     <string name="log_link_clip_label">LogLink</string>
