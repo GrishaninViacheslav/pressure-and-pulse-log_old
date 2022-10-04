@@ -45,14 +45,16 @@ class LogEntryFragment :
         dateInputEditText.keyListener = null
         timeInputEditText.keyListener = null
         confirmButton.setOnClickListener {
-            viewModel.addEntry(
-                LogEntry(
-                    currTimestampMs / 1000,
-                    systolicPressureInputEditText.text.toString().toInt(),
-                    diastolicPressureInputEditText.text.toString().toInt(),
-                    pulseInputEditText.text.toString().toInt()
+            try { // TODO: отрефакторить и реализовать вывод сообщения об ошибке
+                viewModel.addEntry(
+                    LogEntry(
+                        currTimestampMs / 1000,
+                        systolicPressureInputEditText.text.toString().toInt(),
+                        diastolicPressureInputEditText.text.toString().toInt(),
+                        pulseInputEditText.text.toString().toInt()
+                    )
                 )
-            )
+            } catch (exception: java.lang.NumberFormatException){ }
         }
     }
 
