@@ -31,7 +31,7 @@ val appModule = module {
     single { provideNavigatorHolder(get()) }
     single { provideScreens() }
 
-    viewModel { LogViewModel(get(), get(), get()) }
+    viewModel { LogViewModel(get(), get(), get(), get()) }
     viewModel { EntryViewModel(get()) }
 }
 

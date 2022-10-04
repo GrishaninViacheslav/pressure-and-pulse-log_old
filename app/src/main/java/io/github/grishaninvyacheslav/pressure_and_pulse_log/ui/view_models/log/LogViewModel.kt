@@ -3,8 +3,10 @@ package io.github.grishaninvyacheslav.pressure_and_pulse_log.ui.view_models.log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.BuildConfig
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.R
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.clipboard.IClipboardRepository
+import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.guid.IDeviceGuidProvider
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.log.ILogRepository
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.models.resource.IResourceProvider
 import io.github.grishaninvyacheslav.pressure_and_pulse_log.utils.CancelableJobs
@@ -13,7 +15,8 @@ import kotlinx.coroutines.*
 class LogViewModel(
     private val logRepository: ILogRepository,
     private val clipboardRepository: IClipboardRepository,
-    private val resourceProvider: IResourceProvider
+    private val resourceProvider: IResourceProvider,
+    private val deviceGuidProvider: IDeviceGuidProvider
 ) :
     ViewModel() {
     private val mutableLogState: MutableLiveData<LogState> = MutableLiveData()
@@ -52,7 +55,7 @@ class LogViewModel(
         CoroutineScope(Dispatchers.IO + clipboardExceptionHandler).launch {
             clipboardRepository.setTextClip(
                 resourceProvider.getString(R.string.log_link_clip_label),
-                "https://grishaninvyacheslav.github.io/pressure_and_pulse_demo.html?guid=d75204d9-745d-4f1f-84bf-0c1d79af3ae6"
+                String.format(BuildConfig.USER_LOG_URL_FORMAT_STRING, deviceGuidProvider.getDeviceGUID())
             )
             mutableShareState.postValue(ShareState.Success)
         }.also { cancelableJobs.add(it) }

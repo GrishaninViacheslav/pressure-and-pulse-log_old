@@ -25,6 +25,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("api.properties").newDataInputStream())
+        def userLogUrlFormatString = properties.getProperty("USER_LOG_URL_FORMAT_STRING", "[EXCEPTION PLACEHOLDER, LOOK AT BUILD.GRADLE: failed to extract userLogUrlFormatString from api.properties]")
+        it.buildConfigField "String", "USER_LOG_URL_FORMAT_STRING", userLogUrlFormatString
+        def preferencesFileName = properties.getProperty("PREFERENCES_FILE_NAME", "[EXCEPTION PLACEHOLDER, LOOK AT BUILD.GRADLE: failed to extract preferencesFileName from api.properties]")
+        it.buildConfigField "String", "PREFERENCES_FILE_NAME", preferencesFileName
+        def preferencesGuidKey = properties.getProperty("PREFERENCES_GUID_KEY", "[EXCEPTION PLACEHOLDER, LOOK AT BUILD.GRADLE: failed to extract preferencesGuidKey from api.properties]")
+        it.buildConfigField "String", "PREFERENCES_GUID_KEY", preferencesGuidKey
+    }
     buildFeatures {
         viewBinding true
     }
