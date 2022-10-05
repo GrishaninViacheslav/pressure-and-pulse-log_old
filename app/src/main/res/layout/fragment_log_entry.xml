@@ -39,6 +39,7 @@
                 android:background="@android:color/transparent"
                 android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
+                android:inputType="date"
                 tools:ignore="SpUsage"
                 tools:text="09.10.2022" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -60,6 +61,7 @@
                 android:background="@android:color/transparent"
                 android:textColor="@color/major_text_color"
                 android:textSize="@dimen/major_value"
+                android:inputType="date"
                 tools:ignore="SpUsage"
                 tools:text="19:04" />
         </com.google.android.material.textfield.TextInputLayout>
